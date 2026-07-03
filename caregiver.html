@@ -1,1 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAYIMTECH - Caregiver Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero">
+      <div class="logo-row">
+        <div class="logo">🩺</div>
+        <div>
+          <h1>Caregiver Dashboard</h1>
+          <p>Real-time monitoring for dehydration risk</p>
+        </div>
+      </div>
+      <div class="badge" id="connectionBadge">Listening Live</div>
+    </section>
 
+    <section class="grid">
+      <div class="card span-8">
+        <p class="card-title">Patient Overview</p>
+        <h2 id="patientName">David Cohen</h2>
+        <p class="hint">One caregiver monitors one patient for this demo, as required.</p>
+      </div>
+
+      <div class="card span-4">
+        <p class="card-title">System Status</p>
+        <div class="status-pill" id="statusPill">● <span id="statusText">Loading...</span></div>
+        <p class="hint" id="statusMessage">Waiting for updates...</p>
+      </div>
+
+      <div class="card span-4">
+        <p class="card-title">Heart Rate</p>
+        <div class="metric"><span id="heartRate">--</span> <span class="unit">BPM</span></div>
+      </div>
+
+      <div class="card span-4">
+        <p class="card-title">Temperature</p>
+        <div class="metric"><span id="temperature">--</span> <span class="unit">°C</span></div>
+      </div>
+
+      <div class="card span-4">
+        <p class="card-title">Hydration Level</p>
+        <div class="metric"><span id="hydration">--</span> <span class="unit">%</span></div>
+      </div>
+
+      <div class="card span-12">
+        <div id="alertBox" class="alert-box hidden">🚨 HIGH DEHYDRATION RISK - Patient needs attention.</div>
+        <p class="hint">Last update from patient app: <strong id="lastUpdate">--</strong></p>
+        <div class="actions">
+          <button class="secondary" id="ackBtn">Acknowledge Alert</button>
+          <button class="primary" id="refreshBtn">Refresh Dashboard</button>
+          <button class="danger-btn" id="resetBtn">Reset Demo</button>
+        </div>
+      </div>
+
+      <div class="card span-12">
+        <p class="card-title">Demo User Stories</p>
+        <ul class="timeline">
+          <li><strong>User Story 1:</strong> As a caregiver, I receive a dehydration risk notification within 5 seconds.</li>
+          <li><strong>User Story 2:</strong> As a caregiver, I proactively view patient readings within 5 seconds.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast"></div>
+  <footer class="footer">MAYIMTECH Demo | Caregiver Dashboard</footer>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/caregiver.js"></script>
+</body>
+</html>

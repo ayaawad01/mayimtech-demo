@@ -1,1 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAYIMTECH - Patient App</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero">
+      <div class="logo-row">
+        <div class="logo">💧</div>
+        <div>
+          <h1>MAYIMTECH</h1>
+          <p>Patient Web App - simulated wearable readings</p>
+        </div>
+      </div>
+      <div class="badge" id="connectionBadge">Device Online</div>
+    </section>
 
+    <section class="grid">
+      <div class="card span-12">
+        <p class="card-title">Patient</p>
+        <h2 id="patientName">David Cohen</h2>
+        <p class="hint">This smartphone screen emulates the elderly patient's smart wristband.</p>
+      </div>
+
+      <div class="card span-4">
+        <p class="card-title">Heart Rate</p>
+        <div class="metric"><span id="heartRate">--</span> <span class="unit">BPM</span></div>
+        <p class="hint">Simulated pulse reading.</p>
+      </div>
+
+      <div class="card span-4">
+        <p class="card-title">Temperature</p>
+        <div class="metric"><span id="temperature">--</span> <span class="unit">°C</span></div>
+        <p class="hint">Simulated body temperature.</p>
+      </div>
+
+      <div class="card span-4">
+        <p class="card-title">Hydration Level</p>
+        <div class="metric"><span id="hydration">--</span> <span class="unit">%</span></div>
+        <p class="hint">Estimated demo hydration score.</p>
+      </div>
+
+      <div class="card span-12">
+        <p class="card-title">Current Status</p>
+        <div class="status-pill" id="statusPill">● <span id="statusText">Loading...</span></div>
+        <p class="hint" id="statusMessage">Waiting for Firebase data...</p>
+        <p class="hint">Last update: <strong id="lastUpdate">--</strong></p>
+
+        <div class="actions">
+          <button class="primary" id="updateBtn">Update Normal Readings</button>
+          <button class="warn" id="simulateBtn">Simulate Dehydration</button>
+          <button class="danger-btn" id="forceAlertBtn">Force Alert</button>
+        </div>
+      </div>
+
+      <div class="card span-12">
+        <p class="card-title">Demo Instructions</p>
+        <ul class="timeline">
+          <li>1. Open this page on the smartphone.</li>
+          <li>2. Open caregiver.html on the laptop.</li>
+          <li>3. Press “Force Alert” or “Simulate Dehydration”.</li>
+          <li>4. The caregiver dashboard should update within 5 seconds.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast"></div>
+  <footer class="footer">MAYIMTECH Demo | Patient App</footer>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/patient.js"></script>
+</body>
+</html>
